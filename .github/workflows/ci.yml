@@ -19,7 +19,7 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: lts/*
           cache: pnpm
 
       - name: Install dependencies
@@ -39,7 +39,7 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: lts/*
           cache: pnpm
 
       - name: Install dependencies
@@ -61,14 +61,19 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: lts/*
           cache: pnpm
 
       - name: Install dependencies
         run: pnpm install
+
+      - run: pnpm exec playwright-core install
 
       - name: Playground prepare
         run: pnpm run dev:prepare
 
       - name: Test
         run: pnpm run test
+
+      - name: Test types
+        run: pnpm run test:types
