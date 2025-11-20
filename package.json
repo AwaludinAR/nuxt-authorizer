@@ -1,6 +1,6 @@
 {
   "name": "nuxt-authorizer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A lightweight and flexible authorization module for Nuxt App",
   "license": "MIT",
   "type": "module",
@@ -8,7 +8,13 @@
     "type": "git",
     "url": "git+https://github.com/awaludinar/nuxt-authorizer.git"
   },
-  "keywords": ["nuxt", "nitro", "module", "authorizer", "authorization"],
+  "keywords": [
+    "nuxt",
+    "nitro",
+    "module",
+    "authorizer",
+    "authorization"
+  ],
   "exports": {
     ".": {
       "types": "./dist/types.d.mts",
