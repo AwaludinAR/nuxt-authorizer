@@ -107,7 +107,7 @@ describe('Ability', () => {
     it('Should handle infinite recursive', async () => {
       const arr = () => [arr]
       const inf = defineAbility((_exec: boolean) => [arr])
-      expect(async () => await inf(true)).rejects.toThrow()
+      await expect(async () => await inf(true)).rejects.toThrow()
     })
   })
 
@@ -131,7 +131,7 @@ describe('Ability', () => {
     it('Should handle infinite recursive', async () => {
       const arr = () => [arr]
       const inf = defineAbility(arr)
-      expect(async () => await inf()).rejects.toThrow()
+      await expect(async () => await inf()).rejects.toThrow()
     })
   })
 

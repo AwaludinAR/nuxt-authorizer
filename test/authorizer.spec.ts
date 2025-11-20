@@ -40,7 +40,7 @@ describe('Authorizer', () => {
     })
 
     it('Should error', async () => {
-      expect(async () => await authorize(ability, { id: 0 })).rejects.toThrow()
+      await expect(async () => await authorize(ability, { id: 0 })).rejects.toThrow()
     })
   })
 })
