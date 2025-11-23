@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.0.3
+
+[compare changes](https://github.com/awaludinar/nuxt-authorizer/compare/v0.0.2...v0.0.3)
+
+### 🚀 Enhancements
+
+- Add reverse option in Authorizer components and composables ([44ce934](https://github.com/awaludinar/nuxt-authorizer/commit/44ce934))
+
+### 🩹 Fixes
+
+- Fix Cannot not work ([61eb19c](https://github.com/awaludinar/nuxt-authorizer/commit/61eb19c))
+- **workflows:** Fix pkg-pr-new publish ([119e7df](https://github.com/awaludinar/nuxt-authorizer/commit/119e7df))
+
+### 🏡 Chore
+
+- **tests:** Add more components tests ([2cb0b26](https://github.com/awaludinar/nuxt-authorizer/commit/2cb0b26))
+
+### ❤️ Contributors
+
+- Awaludin AR ([@AwaludinAR](https://github.com/AwaludinAR))
+
 ## v0.0.2
 
 
