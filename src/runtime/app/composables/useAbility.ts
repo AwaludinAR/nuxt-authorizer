@@ -1,8 +1,9 @@
-import { ref, toRaw, type MaybeRefOrGetter } from 'vue'
+import { ref, toRaw, toValue, type MaybeRefOrGetter } from 'vue'
 import type { Ability, AbilityOrRuleParams, OnAuthorized, OnUnauthorized, Rule } from '../../types'
 import { defineAbility } from '../../utils'
 
 type Options = {
+  reverse?: MaybeRefOrGetter<boolean>
   onAuthorized?: OnAuthorized
   onUnauthorized?: OnUnauthorized
 }
@@ -17,7 +18,8 @@ export function useAbility<
     if (!ability?.authorizer) {
       ability = defineAbility(toRaw(abilityOrRule) as Ability<any>, options)
     }
-    authorized.value = await ability(...args)
+    const res = await ability(...args)
+    authorized.value = toValue(options.reverse) ? !res : res
 
     if (authorized.value && options.onAuthorized) {
       options.onAuthorized()

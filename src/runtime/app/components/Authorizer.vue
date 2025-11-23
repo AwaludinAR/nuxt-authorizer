@@ -8,6 +8,7 @@ import { useAbility } from '../composables/useAbility'
 const props = defineProps<{
   ability: A
   args?: AbilityOrRuleParams<A>
+  reverse?: boolean
   as?: AsTag | Component
   asChild?: boolean
 }>()
@@ -19,6 +20,7 @@ const emit = defineEmits<{
 const statusCode = ref<number>()
 const errMsg = ref<string>()
 const { authorized, execute } = useAbility(props.ability, {
+  reverse: props.reverse,
   onAuthorized: () => {
     statusCode.value = undefined
     errMsg.value = undefined
