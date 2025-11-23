@@ -13,7 +13,7 @@ const unauthorized = defineAbility(() => false)
     <Can :ability="authorized" as="div" data-testid="as-can-visible">
       Can with as Visible
     </Can>
-    <Can :ability="unauthorized" data-testid="can-invisible">
+    <Can :ability="unauthorized" as="button" data-testid="can-invisible">
       Can invisible
     </Can>
 
@@ -26,5 +26,31 @@ const unauthorized = defineAbility(() => false)
     <Cannot :ability="authorized" as="button" data-testid="cannot-invisible">
       Cannot Invisible
     </Cannot>
+
+    <Authorizer :ability="authorized">
+      <template #can>
+        <div data-testid="authorizer-can-visible">
+          Can Visible from authorizer
+        </div>
+      </template>
+      <template #cannot>
+        <div data-testid="authorizer-cannot-invisible">
+          Cannot invisible from authorizer
+        </div>
+      </template>
+    </Authorizer>
+
+    <Authorizer :ability="unauthorized">
+      <template #can>
+        <div data-testid="authorizer-can-invisible">
+          Can Invisible from authorizer
+        </div>
+      </template>
+      <template #cannot>
+        <div data-testid="authorizer-cannot-visible">
+          Cannot Visible from authorizer
+        </div>
+      </template>
+    </Authorizer>
   </div>
 </template>
