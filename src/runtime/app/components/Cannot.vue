@@ -38,7 +38,7 @@ watchSyncEffect(() => {
 </script>
 
 <template>
-  <Primitive v-if="authorized" :as="as" :as-child="asChild">
+  <Primitive v-if="!authorized" :as="as" :as-child="asChild">
     <slot />
   </Primitive>
 </template>
