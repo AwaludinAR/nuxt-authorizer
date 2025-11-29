@@ -195,10 +195,54 @@ const allowed = await ability(/* PARAMETERS /*)
 
 or you can use `useAbility`, composables accept functions (rules) or abilities
 
+### Components
+
+`Can` Component will make content inside `<slot/>` visible if authorized is `true`.
+
+#### Can Component
+
+```vue
+<template>
+  <Can ability="..." args="[...]">
+    <div>Visible if authorized true</div>
+  </Can>
+</template>
+```
+
+#### Cannot Component
+
+`Cannot` Component will make content inside `<slot/>` visible if authorized is `false`.
+
+```vue
+<template>
+  <Cannot ability="..." args="[...]">
+    <div>Visible if authorized false</div>
+  </Cannot>
+</template>
+```
+
+#### Authorizer Component
+
+with `Authorizer` Component lets you control both `Can` and `Cannot` components, and includes `onAuthorized` and `onUnauthorized` callbacks.
+
+```vue
+<template>
+  <Authorizer ability="..." args"[...]" onAuthorized="..." onUnauthorized="...">
+    <template #can>
+      <div>Visible if Authorized is true</div>
+    </template>
+
+    <template #cannot>
+      <div>Visible if Unauthorized is false</div>
+    </template>
+  </Authorizer>
+</template>
+```
+
 ### Options
 
 #### Set Callback in ability
-m
+
 ```ts
 const ability = defineAbility(() => true, {
   onAuthorized: () => {
